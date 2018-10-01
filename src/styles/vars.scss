@@ -3,6 +3,9 @@ $--white: #fff;
 $--black: #000;
 $--primary-color: #5c5c5c;
 $--post-divide-line-color: mix($--white, #5c5c5c, 50%);
+$--site-color: #1abc9c;
+$--link-color: $--site-color;
+$--link-hover-color: $--site-color;
 
 // Container
 $--container-width: 800px;

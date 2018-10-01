@@ -4,6 +4,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import { store } from './store';
+import {} from '@/vue-install/lite-nprogress'
 import { installNProgress } from '@/vue-install/lite-nprogress';
 
 
@@ -16,6 +17,6 @@ const app = new Vue({
   router,
   components: { App },
   template: '<App/>'
-})
+});
 
 export { app, router, store };
