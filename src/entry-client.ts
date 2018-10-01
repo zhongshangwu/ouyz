@@ -1,4 +1,4 @@
-import { app, router, store } from './main'
+import { app, router, store } from './main';
 
 declare const window: Window;
 
