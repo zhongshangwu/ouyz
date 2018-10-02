@@ -1,0 +1,21 @@
+#lang-selector {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    z-index: 11;
+
+    .langs {
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        display: block;
+        padding: 8px 15px;
+        border: 3px solid #d8d8d8;
+        color: #d8d8d8;
+        transition: opacity 0.2s ease;
+        text-transform: uppercase;
+        opacity: 0.4;
+    }
+}
