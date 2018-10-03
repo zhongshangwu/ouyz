@@ -16,7 +16,10 @@
     "pre-commit-echo": "echo 'Pre-commit checks...' && exit 0"
   },
   "pre-commit": {
-    "run": ["pre-commit-echo", "tslint"],
+    "run": [
+      "pre-commit-echo",
+      "tslint"
+    ],
     "silent": true,
     "colors": false
   },
@@ -35,6 +38,7 @@
   "devDependencies": {
     "@types/color": "^2.0.0",
     "@types/nprogress": "^0.0.29",
+    "mockjs": "^1.0.1-beta3",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^8.2.1",

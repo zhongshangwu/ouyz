@@ -1,7 +1,7 @@
 <template>
   <div id="site-nav" class="site-nav">
 
-    <!-- <nav class="menu-nav">
+    <nav class="menu-nav">
       <div class="menu-nav-toggle">
         <span class="svg svg-button-menu svg-">
           <svg
@@ -19,7 +19,7 @@
           <span class="alt">Menu</span>
         </span>
       </div>
-      <ul class="links left-links">
+      <ul class="links left-links" hidden>
         <li class="link is-active" style="">
           <a href="http://en.nerisson.fr">Works</a>
         </li>
@@ -32,7 +32,7 @@
       </ul>
     </nav>
 
-    <a href="http://www.nerisson.fr" class="logo link-home scroll-to-top">
+    <!-- <a href="http://www.nerisson.fr" class="logo link-home scroll-to-top">
       <span class="inner">
         <span class="svg svg-logo-nerisson-left svg-">
           <svg
@@ -87,10 +87,12 @@
           <span class="alt">Filtrer</span>
         </span>
       </span>
-    </li>
-  </ul> -->
+    </li> -->
+  <!-- </ul> -->
 
   </div>
 </template>
 
 <style lang="scss" src='./site.nav.scss'></style>
+
+<script lang="ts" src="./site.nav.ts"></script>

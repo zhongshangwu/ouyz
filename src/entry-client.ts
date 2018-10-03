@@ -31,4 +31,12 @@ router.onReady(async () => {
             next(error);
         }
     });
+
+    // Fetch initial state
+    const initMatched = router.getMatchedComponents(router.currentRoute);
+    const asyncDataHooks = initMatched.map((c: any) => c.fetch || c.options && c.options.fetch).filter(_ => _);
+    await Promise.all(asyncDataHooks.map(hook => hook({ store, route: router.currentRoute })));
+
+    app.$mount('#app');
+
 });

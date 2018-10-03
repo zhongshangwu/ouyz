@@ -1,5 +1,23 @@
 @import '../../../styles/vars.scss';
 
+.container {
+    z-index: 100;
+    flex-grow: 1;
+}
+
+/* Full width page blocks */
+.outer {
+    position: relative;
+    padding: 0 4vw;
+}
+
+/* Centered content container blocks */
+.inner {
+    margin: 0 auto;
+    max-width: 1040px;
+    width: 100%;
+}
+
 #home-page {
 
     position: absolute;
@@ -14,7 +32,7 @@
     overflow-x: hidden;
     overflow-y: scroll;
 
-    .banner {
+    .parallax {
         position: relative;
         background: center center no-repeat;
         background-image: url('../../../assets/bg-06.jpg');
@@ -26,7 +44,7 @@
         width: 100%;
         transform: translateZ(-2px) scale(3);
         // transition: all .7s ease;
-        .slider {
+        .intro {
             position: absolute;
             top: 50%;
             width: 100%;
@@ -102,10 +120,25 @@
             }
         }
     }
-    #next {
+    .container {
         position: relative;
-        background-color: #ff0000;
+        background-color: #ffffff;
         transform: translateZ(0);
+        padding: 0 4vw;
+
+        .inner {
+            max-width: 1040px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .posts-feed {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -20px;
+            padding: 40px 0 0 0;
+        }
     }
 }
 

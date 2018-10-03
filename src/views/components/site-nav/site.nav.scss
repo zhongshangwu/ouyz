@@ -1,6 +1,6 @@
 #site-nav {
   position: fixed;
-  // top: -100px;
+  top: -100px;
   left: 0;
   width: 100%;
   height: 60px;
@@ -14,4 +14,35 @@
   font: 12px/60px "FuturaStdBold";
   letter-spacing: 0.3em;
   text-transform: uppercase;
+  overflow: hidden;
+
+  .menu-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 78px;
+    height: 100%;
+
+    .menu-nav-toggle {
+      padding: 15px 30px;
+      cursor: pointer;
+    }
+  }
+
+  .svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    .alt {
+      position: absolute;
+      top: -999em;
+      left: -999em;
+    }
+  }
 }
+
+#site-nav + .is-visible {
+  top: 0px;
+}
+
