@@ -1,48 +1,55 @@
 #site-nav {
   position: fixed;
-  top: -100px;
+  top: 0px;
   left: 0;
   width: 100%;
   height: 60px;
-  background: #0a0c12;
+  background: #ffffff;
   z-index: 10;
-  -moz-transition: top 0.5s ease;
-  -o-transition: top 0.5s ease;
-  -webkit-transition: top 0.5s ease;
   transition: top 0.5s ease;
   color: #d8d8d8;
-  font: 12px/60px "FuturaStdBold";
   letter-spacing: 0.3em;
   text-transform: uppercase;
   overflow: hidden;
 
-  .menu-nav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 78px;
-    height: 100%;
+  .nav-grid {
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    flex-wrap: wrap;
 
-    .menu-nav-toggle {
-      padding: 15px 30px;
-      cursor: pointer;
+    .inner {
+      padding: 5px 0;
+      border-bottom: 2px solid #ecf0f1;
+
+      .nav-grid {
+        margin-right: -16px;
+        margin-left: -16px;
+        padding: 0;
+
+        .nav-grid-col {
+          padding-left: 16px;
+          padding-right: 16px;
+          width: 100%;
+        }
+
+        .nav-grid-col-1 {
+          width: 25%;
+        }
+
+        .avatar {
+          img {
+            display: inline-block;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            overflow: hidden;
+            vertical-align: middle;
+          }
+        }
+      }
     }
-  }
 
-  .svg {
-    display: block;
-    width: 100%;
-    height: 100%;
-
-    .alt {
-      position: absolute;
-      top: -999em;
-      left: -999em;
-    }
   }
 }
-
-#site-nav + .is-visible {
-  top: 0px;
-}
-

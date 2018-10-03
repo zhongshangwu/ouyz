@@ -69,7 +69,7 @@ export function fetchPostsList(cuurentPage: number = 1) {
         content: '<h2>我是</h2>'
         + '<p>在上过两个星期小学后，我便退学回家自学，成为一名 homeschooler。从此，应试教育和学校里面所发生的一切，都与我无关。</p>'
         + '<p>现在我 22 岁，在自学的这些年里，我自己学，做自己。追寻自己的所想所爱，并试着将各种兴趣爱好串连在一起。</p>',
-        slug: 'customize-navigation-menu',
+        slug: 'customize-navigatioisssn-menu',
         category: 'docs',
         date: '2017-01-11'
       }
