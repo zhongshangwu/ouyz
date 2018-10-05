@@ -1,4 +1,4 @@
-export class PostLists {
+export class PostList {
   data: Post[] = [];
   pageCount = 0;
   pageSize = 0;
@@ -13,6 +13,26 @@ export class PostLists {
           } else {
             Object.assign(this, { [ key ]: raw[ key ]});
           }
+        }
+      }
+    }
+  }
+}
+
+export class SpecificPostsList {
+  name = '';
+  postlist: Post[] = [];
+
+  constructor(raw?: any) {
+    if (raw) {
+      for (const key of Object.keys(this)) {
+        if (raw.hasOwnProperty(key)) {
+          if (key === 'postlist') {
+            Object.assign(this, { [ key ]: raw[ key ].map((one: any) => new Post(one)) });
+          } else {
+            Object.assign(this, { [ key ]: raw[ key ] });
+          }
+
         }
       }
     }
@@ -35,6 +55,8 @@ export class Post {
   link = '';
   raw: string | null = null;
   photos: string[] = [];
+  categories: Category[] = [];
+  tags: Tag[] = [];
 
   constructor(raw?: any) {
     if (raw) {
@@ -46,4 +68,44 @@ export class Post {
     }
   }
 
+}
+
+export class Category {
+  name = '';
+  slug = '';
+  path = '';
+  count = 0;
+  parent = '';
+
+  constructor(raw?: any) {
+    if (raw) {
+      for (const key of Object.keys(this)) {
+        if (raw.hasOwnProperty(key)) {
+          Object.assign(this, { [ key ]: raw[ key ] });
+        }
+      }
+
+      if (!(raw instanceof Category)) {
+        const splitted = this.slug.split('/');
+        this.parent = this.slug.split('/').filter((v, i, a) => i !== a.length - 1).join('/');
+      }
+    }
+  }
+}
+
+export class Tag {
+  name = '';
+  slug = '';
+  path = '';
+  count = 0;
+
+  constructor(raw?: any) {
+    if (raw) {
+      for (const key of Object.keys(this)) {
+        if (raw.hasOwnProperty(key)) {
+          Object.assign(this, { [ key ]: raw[ key ] });
+        }
+      }
+    }
+  }
 }

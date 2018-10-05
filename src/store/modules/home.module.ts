@@ -1,17 +1,17 @@
 import { ActionTree, MutationTree, Module } from 'vuex';
-import { PostLists } from '@/models/posts.class';
+import { PostList } from '@/models/posts.class';
 import { RootState } from '@/store';
 import { Fetch_Home_Posts_List, Set_Home_Posts_List } from '@/store/types';
 import { fetchPostsList } from '@/api';
 
 
 export class HomeState {
-  postLists = new PostLists();
+  postList = new PostList();
   page = 0;
 }
 
 const state = (): HomeState => ({
-  postLists: new PostLists(),
+  postList: new PostList(),
   page: 0
 });
 
@@ -26,7 +26,7 @@ const actions: ActionTree<HomeState, RootState> = {
 
 const mutations: MutationTree<HomeState> = {
   [ Set_Home_Posts_List ](state, { data, page }) {
-    state.postLists = new PostLists(data);
+    state.postList = new PostList(data);
     state.page = page;
   }
 };

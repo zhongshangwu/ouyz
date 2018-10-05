@@ -17,7 +17,7 @@ import PostCard from '@/views/components/post-card/PostCard.vue';
 export default class HomePage extends Vue {
 
   get posts(): Post[] {
-    return (this.$store.state as RootState).home.postLists.data;
+    return (this.$store.state as RootState).home.postList.data;
   }
 
   get page(): number {
