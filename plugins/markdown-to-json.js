@@ -7,6 +7,16 @@ const md = require('./markdown')
 
 const NAME = 'markdown-webpack-plugin'
 
+function wrapArray(val) {
+  if (Array.isArray(val)) {
+    return val
+  } else if (!val) {
+    return []
+  } else {
+    return [val]
+  }
+}
+
 function processMarkdown(globalRef, file) {
   const {info, debug, compilation, fileDependencies, written, inputFileSystem, copyUnmodified} = globalRef
   return stat(inputFileSystem, file.from)
@@ -40,8 +50,8 @@ function processMarkdown(globalRef, file) {
           }
           data.updated = stat.mtime.toISOString()
           data.slug = data.title
-          data.categories = data.categories || []
-          data.tags = data.tags || []
+          data.categories = wrapArray(data.categories)
+          data.tags = wrapArray(data.tags)
           return data
         })
     })
@@ -51,7 +61,7 @@ function processData(globalRef, postData) {
   const {info, debug, posts, categories, tags } = globalRef
   const options = {
     site: true,
-    posts_size: 1,
+    posts_size: 0,
     posts_props: {
       title: true,
       slug: true,
@@ -93,15 +103,15 @@ function processData(globalRef, postData) {
       date: _('date', post.date),
       updated: _('updated', post.updated),
       comments: _('comments', post.comments),
-      path: _('path', 'database/articles/' + post.slug + '.json'),
-      excerpt: _('excerpt', extractExcerpt(post)),
+      path: _('path', 'static/articles/' + post.slug + '.json'),
+      excerpt: _('excerpt', extractExcerpt(post.body)),
       keywords: _('keywords', post.keywords),
       content: _('content', post.body),
       categories: _('categories', function() {
         return post.categories.map((category) => {
           return {
             name: category,
-            path: 'database/categories/' + category + '.json'
+            path: 'static/categories/' + category + '.json'
           }
         })
       }),
@@ -109,7 +119,7 @@ function processData(globalRef, postData) {
         return post.tags.map((tag) => {
           return {
             name: tag,
-            path: 'database/tags/' + tag + '.json'
+            path: 'static/tags/' + tag + '.json'
           }
         })
       })
@@ -162,7 +172,7 @@ function processData(globalRef, postData) {
   if (options.categories) {
     if (categoryMap.size) {
       writeData.push({
-        path: 'database/categories.json',
+        path: 'static/categories.json',
         data: [...categoryMap.values()].map(mapTags)
       })
 
@@ -173,7 +183,7 @@ function processData(globalRef, postData) {
   if (options.tags) {
     if (tagMap.size) {
       writeData.push({
-        path: 'database/tags.json',
+        path: 'static/tags.json',
         data: [...tagMap.values()].map(mapTags)
       })
 
@@ -189,7 +199,7 @@ function processData(globalRef, postData) {
 
     for (let i = 0; i < postList.length; i += pageSize) {
       pagePosts.push({
-        path: 'database/posts/' + Math.ceil((i + 1) / pageSize) + '.json',
+        path: 'static/posts/' + Math.ceil((i + 1) / pageSize) + '.json',
         data: {
           total: len,
           pageSize: pageSize,
@@ -200,14 +210,14 @@ function processData(globalRef, postData) {
     }
 
     writeData.push({
-      path: 'database/posts.json',
+      path: 'static/posts.json',
       data: pagePosts[0].data
     })
 
     writeData = writeData.concat(pagePosts)
   } else {
     writeData.push({
-      path: '/database/posts/1.json',
+      path: 'static/posts/1.json',
       data: {
         total: postList.length,
         pageSize: postList.length,
@@ -219,7 +229,7 @@ function processData(globalRef, postData) {
 
   if (options.post) {
     writeData.concat(postList.map((post) => {
-      const path = 'database/articles/' + post.slug + '.json'
+      const path = 'static/articles/' + post.slug + '.json'
       return {
         path: path,
         data: post
@@ -385,10 +395,10 @@ function MarkdownPlugin(options = {}) {
       const plugin = { name: 'MarkdownPlugin' }
 
       compiler.hooks.emit.tapAsync(plugin, emit)
-      // compiler.hooks.afterEmit.tapAsync(plugin, afterEmit)
+      compiler.hooks.afterEmit.tapAsync(plugin, afterEmit)
     } else {
       compiler.plugin('emit', emit)
-      // compiler.plugin('after-emit', afterEmit)
+      compiler.plugin('after-emit', afterEmit)
     }
   }
 

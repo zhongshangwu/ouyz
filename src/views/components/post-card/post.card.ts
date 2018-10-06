@@ -17,10 +17,13 @@ import PlainContent from '@/views/components/plain-content/PlainContent.vue';
 export default class PostCard extends Vue{
   post!: Post;
 
-  get lastCategory() {
-    return {
-      name: 'category'
-    };
+  get lastCategory(): string {
+    const len = this.post.categories.length;
+    if (!len) {
+      return '';
+    } else {
+      return this.post.categories[len - 1].name;
+    }
   }
 
   get fixedExcerpt() {

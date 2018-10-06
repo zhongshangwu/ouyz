@@ -46,7 +46,7 @@ const md = new MarkdownIt('default', {
     slugify: lodash.kebabCase
   })
   .use(MarkdownItAttrs)
-  .use(MarkdownItCJKBreaks)
+  // .use(MarkdownItCJKBreaks)
   .use(MarkdownItEmoji)
   .use(MarkdownItFootnote)
 

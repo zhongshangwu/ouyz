@@ -21,13 +21,13 @@ export class PostList {
 
 export class SpecificPostsList {
   name = '';
-  postlist: Post[] = [];
+  posts: Post[] = [];
 
   constructor(raw?: any) {
     if (raw) {
       for (const key of Object.keys(this)) {
         if (raw.hasOwnProperty(key)) {
-          if (key === 'postlist') {
+          if (key === 'posts') {
             Object.assign(this, { [ key ]: raw[ key ].map((one: any) => new Post(one)) });
           } else {
             Object.assign(this, { [ key ]: raw[ key ] });
@@ -67,12 +67,10 @@ export class Post {
       }
     }
   }
-
 }
 
 export class Category {
   name = '';
-  slug = '';
   path = '';
   count = 0;
   parent = '';
@@ -86,8 +84,8 @@ export class Category {
       }
 
       if (!(raw instanceof Category)) {
-        const splitted = this.slug.split('/');
-        this.parent = this.slug.split('/').filter((v, i, a) => i !== a.length - 1).join('/');
+        const splitted = this.name.split('/');
+        this.parent = this.name.split('/').filter((v, i, a) => i !== a.length - 1).join('/');
       }
     }
   }
@@ -95,7 +93,6 @@ export class Category {
 
 export class Tag {
   name = '';
-  slug = '';
   path = '';
   count = 0;
 

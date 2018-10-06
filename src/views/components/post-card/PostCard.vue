@@ -21,8 +21,8 @@
         </header>
         <section class="post-card-excerpt">
 
-          <!-- <plain-content :html="post.content"></plain-content> -->
-          <p>{{ "Welcome, it's great to have you here. We know that first impressions are important, so we've populated your new site with some initial getting started posts that will help you get familiar with everything in no time." }}</p>
+          <plain-content :html="post.excerpt"></plain-content>
+          <!-- <p>{{ "Welcome, it's great to have you here. We know that first impressions are important, so we've populated your new site with some initial getting started posts that will help you get familiar with everything in no time." }}</p> -->
         </section>
 
       </a>

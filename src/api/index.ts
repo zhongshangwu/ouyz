@@ -3,6 +3,7 @@ import { SiteConfig } from '@/models/site-config.class';
 import { Category, PostList, SpecificPostsList, Tag } from '@/models/posts.class';
 import { Article, Page } from '@/models/article.class';
 
+axios.interceptors.response.use(reponse => reponse.data);
 
 // GET /static/site.json
 export async function fetchHexoConfig() {
