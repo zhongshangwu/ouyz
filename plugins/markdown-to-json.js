@@ -50,6 +50,7 @@ function processMarkdown(globalRef, file) {
           }
           data.updated = stat.mtime.toISOString()
           data.slug = data.title
+          data.banner = '/static/images/banner.jpg'
           data.categories = wrapArray(data.categories)
           data.tags = wrapArray(data.tags)
           return data
@@ -61,10 +62,11 @@ function processData(globalRef, postData) {
   const {info, debug, posts, categories, tags } = globalRef
   const options = {
     site: true,
-    posts_size: 0,
+    posts_size: 10,
     posts_props: {
       title: true,
       slug: true,
+      banner: true,
       date: true,
       updated: true,
       comments: true,

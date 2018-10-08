@@ -1,12 +1,13 @@
 <template>
-  <div id="home-page" style="perspective: 1px; transform-style: preserve-3d;">
+  <div id="home-page">
+    <!--  -->
     <section class="parallax" :style="{height: offsetheight + 'px'}">
       <div class="intro">
         <a href="/" class="avatar">
           <img src="@/assets/avatar.jpeg" alt="">
         </a>
 
-        <h1 class="title">Shawn&#39;s Blog</h1>
+        <h1 class="title">Ouyz&#39;s Blog</h1>
         <div class="slogan">程序员的自我修养 {{ msg }}</div>
 
         <hr class="divider">
@@ -39,6 +40,14 @@
         </div>
       </div>
     </section>
+    <el-pagination class="pagination"
+      background
+      layout="prev,pager,next"
+      :page-count="pagination.pageCount"
+      :page-size="pagination.pageSize"
+      :current-page="page"
+      @current-change="onPageChange">
+    </el-pagination>
   </div>
 </template>
 

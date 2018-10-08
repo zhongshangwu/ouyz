@@ -7,9 +7,10 @@ import router from './router';
 import { store } from './store';
 import { installNProgress } from '@/vue-install/lite-nprogress';
 import { registerAsyncDataHook } from '@/vue-install/lite-vue-class-component';
+import { installElementUI } from '@/vue-install/lite-element-ui';
 import '@/styles/import-style';
 
-
+Vue.use(installElementUI, { size: 'small'});
 Vue.use(installNProgress);
 Vue.use(registerAsyncDataHook);
 Vue.config.productionTip = false;

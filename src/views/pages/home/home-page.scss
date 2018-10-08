@@ -40,10 +40,11 @@
         top: 0;
         left: 0;
         right: 0;
-        height: 900px;
+        // height: 600px;
+        // height:  100%;
         width: 100%;
-        transform: translateZ(-2px) scale(3);
-        // transition: all .7s ease;
+        transform: translateY(-650px) translateZ(-2px) scale(3);
+        transition: all .7s ease;
         .intro {
             position: absolute;
             top: 50%;

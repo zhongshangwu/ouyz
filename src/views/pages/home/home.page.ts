@@ -26,13 +26,30 @@ export default class HomePage extends Vue {
 
   get offsetheight() {
     if (document.documentElement) {
-      return document.documentElement.clientHeight;
+      return document.documentElement.clientHeight * 0.382;
     }
     return 600;
   }
 
+  get pagination() {
+    const { pageCount, pageSize, total } = (this.$store.state as RootState).home.postList;
+    return { pageCount, pageSize, total };
+  }
+
   get msg() {
     return 'this is hello world';
+  }
+
+  async onPageChange(page: number) {
+    if (this.page === page) {
+      return;
+    }
+    this.$nprogress.start();
+    await this.$store.dispatch(`home/${Fetch_Home_Posts_List}`, { page });
+    if (window) {
+      window.scrollTo(0, 0);
+    }
+    this.$nprogress.done();
   }
 
   async fetch({ store }: Context) {
