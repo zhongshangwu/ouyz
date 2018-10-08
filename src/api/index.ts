@@ -20,15 +20,15 @@ export async function fetchPostsListByTag(tagName: string) {
   return axios.get<SpecificPostsList>(`/static/tags/${tagName}.json`);
 }
 
-// GET /static/categories/:slug.json
+// GET /static/categories/:abbrlink.json
 export async function fetchPostsListByCategory(categoryName: string) {
   return axios.get<SpecificPostsList>(`/static/categories/${categoryName}.json`);
 }
 
 
-// GET /static/articles/:Slug.json
-export async function fetchPostBySlug(slug: string) {
-  return axios.get<Article>(`/static/articles/${slug}.json`);
+// GET /static/articles/:abbrlink.json
+export async function fetchPostByabbrlink(abbrlink: string) {
+  return axios.get<Article>(`/static/articles/${abbrlink}.json`);
 }
 
 
@@ -62,7 +62,7 @@ export async function fetchImplicitPageBySource(source: string) {
 //         content: '<h2>我是</h2>'
 //           + '<p>在上过两个星期小学后，我便退学回家自学，成为一名 homeschooler。从此，应试教育和学校里面所发生的一切，都与我无关。</p>'
 //           + '<p>现在我 22 岁，在自学的这些年里，我自己学，做自己。追寻自己的所想所爱，并试着将各种兴趣爱好串连在一起。</p>',
-//         slug: 'multiple-languages-support',
+//         abbrlink: 'multiple-languages-support',
 //         category: 'docs',
 //         date: '2017-01-24'
 //       },
@@ -72,7 +72,7 @@ export async function fetchImplicitPageBySource(source: string) {
 //         content: '<h2>我是</h2>'
 //         + '<p>在上过两个星期小学后，我便退学回家自学，成为一名 homeschooler。从此，应试教育和学校里面所发生的一切，都与我无关。</p>'
 //         + '<p>现在我 22 岁，在自学的这些年里，我自己学，做自己。追寻自己的所想所爱，并试着将各种兴趣爱好串连在一起。</p>',
-//         slug: 'use-social-commenting-services',
+//         abbrlink: 'use-social-commenting-services',
 //         category: 'docs',
 //         date: '2017-01-19',
 //         draft: true
@@ -83,7 +83,7 @@ export async function fetchImplicitPageBySource(source: string) {
 //         content: '<h2>我是</h2>'
 //         + '<p>在上过两个星期小学后，我便退学回家自学，成为一名 homeschooler。从此，应试教育和学校里面所发生的一切，都与我无关。</p>'
 //         + '<p>现在我 22 岁，在自学的这些年里，我自己学，做自己。追寻自己的所想所爱，并试着将各种兴趣爱好串连在一起。</p>',
-//         slug: 'insert-code-blocks-with-syntax-highlight',
+//         abbrlink: 'insert-code-blocks-with-syntax-highlight',
 //         category: 'docs',
 //         date: '2017-01-18'
 //       },
@@ -92,7 +92,7 @@ export async function fetchImplicitPageBySource(source: string) {
 //         content: '<h2>我是</h2>'
 //         + '<p>在上过两个星期小学后，我便退学回家自学，成为一名 homeschooler。从此，应试教育和学校里面所发生的一切，都与我无关。</p>'
 //         + '<p>现在我 22 岁，在自学的这些年里，我自己学，做自己。追寻自己的所想所爱，并试着将各种兴趣爱好串连在一起。</p>',
-//         slug: 'author-posts-or-pages',
+//         abbrlink: 'author-posts-or-pages',
 //         category: 'docs',
 //         date: '2017-01-13'
 //       },
@@ -103,7 +103,7 @@ export async function fetchImplicitPageBySource(source: string) {
 //         content: '<h2>我是</h2>'
 //         + '<p>在上过两个星期小学后，我便退学回家自学，成为一名 homeschooler。从此，应试教育和学校里面所发生的一切，都与我无关。</p>'
 //         + '<p>现在我 22 岁，在自学的这些年里，我自己学，做自己。追寻自己的所想所爱，并试着将各种兴趣爱好串连在一起。</p>',
-//         slug: 'add-posts-or-pages',
+//         abbrlink: 'add-posts-or-pages',
 //         category: 'docs',
 //         date: '2017-01-12'
 //       },
@@ -112,7 +112,7 @@ export async function fetchImplicitPageBySource(source: string) {
 //         content: '<h2>我是</h2>'
 //         + '<p>在上过两个星期小学后，我便退学回家自学，成为一名 homeschooler。从此，应试教育和学校里面所发生的一切，都与我无关。</p>'
 //         + '<p>现在我 22 岁，在自学的这些年里，我自己学，做自己。追寻自己的所想所爱，并试着将各种兴趣爱好串连在一起。</p>',
-//         slug: 'customize-navigation-menu',
+//         abbrlink: 'customize-navigation-menu',
 //         category: 'docs',
 //         date: '2017-01-11'
 //       },
@@ -122,7 +122,7 @@ export async function fetchImplicitPageBySource(source: string) {
 //         content: '<h2>我是</h2>'
 //         + '<p>在上过两个星期小学后，我便退学回家自学，成为一名 homeschooler。从此，应试教育和学校里面所发生的一切，都与我无关。</p>'
 //         + '<p>现在我 22 岁，在自学的这些年里，我自己学，做自己。追寻自己的所想所爱，并试着将各种兴趣爱好串连在一起。</p>',
-//         slug: 'customize-navigatioisssn-menu',
+//         abbrlink: 'customize-navigatioisssn-menu',
 //         category: 'docs',
 //         date: '2017-01-11'
 //       }

@@ -14,6 +14,11 @@ export default new Router({
       path: '/home',
       name: 'home-page',
       component: () => import('@/views/pages/home/HomePage.vue')
+    },
+    {
+      path: '/posts/:abbrlink',
+      name: 'post-page',
+      component: () => import('@/views/pages/posts/PostPage.vue')
     }
   ]
 });

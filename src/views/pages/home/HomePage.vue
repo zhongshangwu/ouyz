@@ -33,7 +33,7 @@
         <div class="posts-feed">
           <post-card
             v-for="post in posts"
-            :key="post.slug"
+            :key="post.abbrlink"
             :post="post"
             :showPost="true">
           </post-card>

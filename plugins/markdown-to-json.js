@@ -49,7 +49,6 @@ function processMarkdown(globalRef, file) {
             data.title = extractTitle(data.body)
           }
           data.updated = stat.mtime.toISOString()
-          data.slug = data.title
           data.banner = '/static/images/banner.jpg'
           data.categories = wrapArray(data.categories)
           data.tags = wrapArray(data.tags)
@@ -65,7 +64,7 @@ function processData(globalRef, postData) {
     posts_size: 10,
     posts_props: {
       title: true,
-      slug: true,
+      abbrlink: true,
       banner: true,
       date: true,
       updated: true,
@@ -101,11 +100,11 @@ function processData(globalRef, postData) {
     return {
       title: _('title', post.title),
       banner: _('banner', post.banner),
-      slug: _('slug', post.slug),
+      abbrlink: _('abbrlink', post.abbrlink),
       date: _('date', post.date),
       updated: _('updated', post.updated),
       comments: _('comments', post.comments),
-      path: _('path', 'static/articles/' + post.slug + '.json'),
+      path: _('path', 'static/articles/' + post.abbrlink + '.json'),
       excerpt: _('excerpt', extractExcerpt(post.body)),
       keywords: _('keywords', post.keywords),
       content: _('content', post.body),
@@ -231,7 +230,7 @@ function processData(globalRef, postData) {
 
   if (options.post) {
     writeData.concat(postList.map((post) => {
-      const path = 'static/articles/' + post.slug + '.json'
+      const path = 'static/articles/' + post.abbrlink + '.json'
       return {
         path: path,
         data: post

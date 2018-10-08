@@ -20,8 +20,8 @@ const actions: ActionTree<TagsState, RootState> = {
     const { data } = await fetchAllTags();
     commit(Set_Tags, { data });
   },
-  async [ Fetch_Related_Posts_Of_Tag ]({ commit }, { slug }) {
-    const { data } = await fetchPostsListByTag(slug);
+  async [ Fetch_Related_Posts_Of_Tag ]({ commit }, { name }) {
+    const { data } = await fetchPostsListByTag(name);
     commit(Set_Related_Posts_Of_Tag, { data });
   }
 };

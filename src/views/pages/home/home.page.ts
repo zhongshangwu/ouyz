@@ -46,8 +46,9 @@ export default class HomePage extends Vue {
     }
     this.$nprogress.start();
     await this.$store.dispatch(`home/${Fetch_Home_Posts_List}`, { page });
-    if (window) {
-      window.scrollTo(0, 0);
+    const homePage = document.getElementById('home-page');
+    if (homePage) {
+      homePage.scrollTop = 0;
     }
     this.$nprogress.done();
   }
@@ -69,20 +70,5 @@ export default class HomePage extends Vue {
       await store.dispatch(`home/${Fetch_Home_Posts_List}`, { page: 1 });
     }
   }
-
-  // async say() {
-  //   console.log('Fetch posts....');
-  //   const prePage: number = (this.$store.state as RootState).home.page;
-  //   // avoid double fetch initial data
-  //   if (prePage !== 1) {
-  //     await this.$store.dispatch(`home/${Fetch_Home_Posts_List}`, { page: 1 });
-  //   }
-  // }
-
-  // bar() {
-  //   console.log('Print posts....');
-  //   console.log((this.$store.state as RootState).home.postLists.data);
-  // }
-
 }
 

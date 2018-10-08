@@ -41,7 +41,7 @@ export class SpecificPostsList {
 
 export class Post {
   title = '';
-  slug = '';
+  abbrlink = '';
   date = '';
   updated = '';
   banner: string | null = '';
