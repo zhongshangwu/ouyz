@@ -1,6 +1,6 @@
-# ouyz
+# Ouyz
 
-> A Vue.js project
+> 基于`Vue 3.0`构建的单页面博客
 
 ## Build Setup
 
